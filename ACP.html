@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="form1" onsubmit="return validate1()">
+        <label>Enter your name</label>
+        <input type="text" name="name1"><br><br>
+        <label>Enter your role number</label>
+        <input type="number" name="role1" min="1" max="1000"><br><br>
+        <input type="submit" value="Submit">
+        <p id="msg"></p>
+        <script>
+        function validate1() {
+            var name = document.forms["form1"]["name1"].value;
+            var role = document.forms["form1"]["role1"].value;
+            if (name == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+            if (role == "" || role < 1 || role > 1000) {
+                alert("Role number must be between 1 and 1000");
+                return false;
+            }
+            document.getElementById("msg").innerHTML = "Your name and role number have been submitted successfully.";
+            return true;
+        }
+        </script>
+</body>
+</html>
